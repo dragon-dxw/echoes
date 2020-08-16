@@ -21,8 +21,19 @@ class Volume(models.Model):
     date_year = IntegerField(default=0)
     date = CharField(max_length=100)
 
+    @property
+    def festival_type(self):
+        if self.date_season in ("Spring", "Autumn"):
+            return "Equinox"
+        else:
+            return "Solstice"
+
+    @property
+    def volume_title(self):
+        return "Volume {v.number}, {v.date_season} {v.festival_type} {v.date_year} YE".format(v=self)
+
     def __str__(self):
-        return self.date
+        return self.volume_title
 
 class Vision(models.Model):
     account = TextField()
