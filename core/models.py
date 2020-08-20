@@ -34,10 +34,11 @@ class Volume(models.Model):
 
 class Vision(models.Model):
     account = TextField()
+    visionary = CharField(max_length=200)
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
 
     def __str__(self):
         """
-        For now, use the first line of the vision text.
+        Use the visionary's name and nation, which we've extracted.
         """
-        return str(self.account).split("\n")[0]
+        return self.visionary
