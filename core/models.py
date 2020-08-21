@@ -35,6 +35,7 @@ class Volume(models.Model):
 class Vision(models.Model):
     account = TextField()
     visionary = CharField(max_length=200)
+    guide = CharField(max_length=200)
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
 
     def __str__(self):
