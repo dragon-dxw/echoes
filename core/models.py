@@ -1,23 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
-NATIONS = (
-    # Imperial nations
-    "the Brass Coast",
-    "Dawn",
-    "Highguard",
-    "Imperial Orcs",
-    "the League",
-    "the Marches",
-    "Navarr",
-    "Urizen",
-    "Varushka",
-    "Wintermark",
-    # Plus any foreigners we've had visionaries or guides from so far.
-    "Faraden",
-)
-NATION_CHOICES = tuple((n, n) for n in NATIONS)
+from django.db.models import TextField, CharField, ForeignKey, IntegerField
 
 SEASONS = (
     "Spring",
@@ -27,67 +11,35 @@ SEASONS = (
 )
 SEASON_CHOICES = tuple((s, s) for s in SEASONS)
 
-class Pronouns(models.Model):
-    """Pronouns to use when referring to a visionary or guide.
-    I'm using the case names we used for Latin and Greek because reasons."""
-    nominative = models.CharField(max_length=50)  # e.g. "_They_ read a book."
-    accusative = models.CharField(max_length=50)  # e.g. "The wolf saw _them_."
-    genitive = models.CharField(max_length=50)    # e.g. "The horse took _their_ apple."
+class Volume(models.Model):
+    number = CharField(max_length=10,
+                       help_text="The volume number (e.g. 2a)")
+    date_season = CharField(choices=SEASON_CHOICES,
+                            max_length=6)
+    date_year = IntegerField()
 
-    def __str__(self):
-        return "{nom} / {acc} / {gen}".format(nom=self.nominative,
-                                              acc=self.accusative,
-                                              gen=self.genitive)
-
-class Person(models.Model):
-    name = models.CharField(max_length=100)
-    nation = models.CharField(max_length=100, choices=NATION_CHOICES)
-    pronouns = models.ForeignKey(Pronouns, on_delete=models.PROTECT)
-
-    def __str__(self):
-        return "{name} ({nation})".format(name=self.name, nation=self.nation)
-
-
-class SummitDate(models.Model):
-    year = models.IntegerField()
-    season = models.CharField(max_length=20, choices=SEASON_CHOICES)
-
-    def __str__(self):
-        if self.season in ("Spring", "Autumn"):
-            festival = "Equinox"
+    @property
+    def festival_type(self):
+        if self.date_season in ("Spring", "Autumn"):
+            return "Equinox"
         else:
-            festival = "Solstice"
-        return "{season} {festival} {year} YE".format(season=self.season,
-                                                      festival=festival,
-                                                      year=self.year)
+            return "Solstice"
 
-
-class Notes(models.Model):
-    text = models.TextField()
-    author = models.CharField(max_length=100)
-    # TODO: Tie self.author into an actual Author model, optionally connected to User?
+    @property
+    def volume_title(self):
+        return "Volume {v.number}, {v.date_season} {v.festival_type} {v.date_year} YE".format(v=self)
 
     def __str__(self):
-        return self.text
-
-
-class WriteupSection(models.Model):
-    notes = models.ManyToManyField(Notes, related_name="section_for_notes")
-    narrative = models.ForeignKey(Notes, on_delete=models.PROTECT, related_name="section_for_narrative")
-
-    def __str__(self):
-        return self.notes
-
+        return self.volume_title
 
 class Vision(models.Model):
-    visionary = models.ForeignKey(Person, on_delete=models.PROTECT, related_name="visions_as_visionary")
-    guide = models.ForeignKey(Person, on_delete=models.PROTECT, related_name="visions_as_guide")
-    date = models.ForeignKey(SummitDate, on_delete=models.PROTECT)
-    soul_statuses = models.OneToOneField(WriteupSection, on_delete=models.PROTECT,
-                                         related_name="vision_for_soul_statuses") # TODO: Make this more systematic.
-    account = models.OneToOneField(WriteupSection, on_delete=models.PROTECT, related_name="vision_for_account")
-    day_ritual = models.OneToOneField(WriteupSection, on_delete=models.PROTECT,
-                                      related_name="vision_for_day_ritual")
-    night_ritual = models.OneToOneField(WriteupSection, on_delete=models.PROTECT,
-                                        related_name="vision_for_night_ritual")
-    commentaries = models.ManyToManyField(Notes, related_name="vision_for_commentaries")
+    account = TextField()
+    visionary = CharField(max_length=200)
+    guide = CharField(max_length=200)
+    volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
+
+    def __str__(self):
+        """
+        Use the visionary's name and nation, which we've extracted.
+        """
+        return self.visionary
