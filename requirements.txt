@@ -1,2 +1,1 @@
 Django==2.2.4
-django-reverse-admin==2.6.1
