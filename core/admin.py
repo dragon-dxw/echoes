@@ -4,4 +4,7 @@ from django.contrib import admin
 from core.models import Vision, Volume
 
 admin.site.register(Volume)
-admin.site.register(Vision)
+
+@admin.register(Vision)
+class VisionAdmin(admin.ModelAdmin):
+    fields = ('volume', 'visionary', 'guide', 'dose_origin', 'account', 'ritual_results')
