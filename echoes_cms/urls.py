@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from core.views import Example
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('example/', Example.as_view(), name="home"),  # View to return to must be called 'home'.
 ]
