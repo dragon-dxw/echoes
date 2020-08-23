@@ -36,7 +36,7 @@ class Vision(models.Model):
     account = TextField()
     visionary = CharField(max_length=200)
     guide = CharField(max_length=200)
-    dose_origin = CharField(max_length=200, blank=True, null=True)
+    dose_origin = CharField(max_length=300, blank=True, null=True)
     soul_status = TextField(blank=True, null=True)
     ritual_results = TextField(blank=True, null=True)
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
