@@ -1,0 +1,4 @@
+-{{ vision.visionary }}-
+Accompanied by {{ vision.guide }}
+
+{{ vision.plain_text_output|safe }}
