@@ -39,6 +39,7 @@ class Vision(models.Model):
     dose_origin = CharField(max_length=300, blank=True, null=True)
     soul_status = TextField(blank=True, null=True)
     ritual_results = TextField(blank=True, null=True)
+    commentary = TextField(blank=True, null=True)
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
 
     def __str__(self):

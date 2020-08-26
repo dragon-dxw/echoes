@@ -8,4 +8,4 @@ admin.site.register(Volume)
 @admin.register(Vision)
 class VisionAdmin(admin.ModelAdmin):
     fields = ('volume', 'visionary', 'guide', 'dose_origin', 'account',
-              'soul_status', 'ritual_results')
+              'soul_status', 'ritual_results', 'commentary')
