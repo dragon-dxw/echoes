@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from django.db.models import TextField, CharField, ForeignKey, IntegerField
+from django.db.models import TextField, CharField, ForeignKey, IntegerField, BooleanField
 
 SEASONS = (
     "Spring",
@@ -41,6 +41,7 @@ class Vision(models.Model):
     ritual_results = TextField(blank=True, null=True)
     commentary = TextField(blank=True, null=True)
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
+    ready_to_publish = BooleanField(default=False)
 
     def __str__(self):
         """
