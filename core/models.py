@@ -47,3 +47,16 @@ class Vision(models.Model):
         Use the visionary's name and nation, which we've extracted.
         """
         return self.visionary
+
+    def plain_text_output(self):
+        output = []
+        if self.dose_origin:
+            output.append(str(self.dose_origin))
+        output.append(str(self.account))
+        if self.soul_status:
+            output.append(str(self.soul_status))
+        if self.ritual_results:
+            output.append(str(self.ritual_results))
+        if self.commentary:
+            output.append(str(self.commentary))
+        return "\n\n".join(output)
