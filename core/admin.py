@@ -17,3 +17,15 @@ class VisionAdmin(admin.ModelAdmin):
 
     def plain_text_link(self, obj):
         return format_html("<a href='{plain}'>{plain}</a>", plain=reverse("plain_text_vision", args=(obj.pk,)))
+
+    def get_fields(self, request, obj=None):
+        """
+        Modify get_fields() so that we only show plain_text_link on change pages, not add pages.
+        Adapted from https://stackoverflow.com/questions/1245214/django-admin-exclude-field-on-change-form-only .
+        Will need replacing if we move to using fieldsets rather than just fields in VisionAdmin.
+        """
+        fields = list(super(VisionAdmin, self).get_fields(request, obj))
+        exclude_set = set()
+        if not obj:  # obj will be None on the add page, and something on change pages
+            exclude_set.add('plain_text_link')
+        return [f for f in fields if f not in exclude_set]
