@@ -14,6 +14,7 @@ class VisionAdmin(admin.ModelAdmin):
               'soul_status', 'ritual_results', 'commentary', 'plain_text_link',
               'ready_to_publish')
     readonly_fields = ('plain_text_link',)
+    list_filter = ('ready_to_publish',)
 
     def plain_text_link(self, obj):
         return format_html("<a href='{plain}'>{plain}</a>", plain=reverse("plain_text_vision", args=(obj.pk,)))
