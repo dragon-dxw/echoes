@@ -41,6 +41,7 @@ class Vision(models.Model):
     ritual_results = TextField(blank=True, null=True)
     commentary = TextField(blank=True, null=True)
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
+    order_in_volume = IntegerField(default=0)
     ready_to_publish = BooleanField(default=False)
 
     def __str__(self):
