@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from django.db.models import TextField, CharField, ForeignKey, IntegerField, BooleanField
+from django.db.models import TextField, CharField, ForeignKey, IntegerField, BooleanField, UniqueConstraint
 
 SEASONS = (
     "Spring",
@@ -41,8 +41,13 @@ class Vision(models.Model):
     ritual_results = TextField(blank=True, null=True)
     commentary = TextField(blank=True, null=True)
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
-    order_in_volume = IntegerField(default=0)
+    order_in_volume = IntegerField()
     ready_to_publish = BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            UniqueConstraint(fields=['volume', 'order_in_volume'], name='unique_volume_and_order')
+        ]
 
     def __str__(self):
         """
