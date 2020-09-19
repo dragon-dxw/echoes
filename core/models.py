@@ -43,6 +43,10 @@ class Vision(models.Model):
     volume = ForeignKey(Volume, on_delete=models.deletion.CASCADE)
     order_in_volume = IntegerField()
     ready_to_publish = BooleanField(default=False)
+    # ====
+    notes_attribution = CharField(max_length=500, blank=True, null=True)
+    account_attribution = CharField(max_length=500, blank=True, null=True)
+    commentary_attribution = CharField(max_length=500, blank=True, null=True)
 
     class Meta:
         constraints = [
