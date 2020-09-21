@@ -4,16 +4,18 @@ from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
 
-from core.models import Vision, Volume
+from core.models import Vision, Volume, Writer
 
+admin.site.register(Writer)
 admin.site.register(Volume)
 
 @admin.register(Vision)
 class VisionAdmin(admin.ModelAdmin):
     fields = ('volume', 'order_in_volume', 'visionary', 'guide', 'dose_origin',
-              'notes_attribution', 'account_attribution', 'account',
+              'notes_attribution', 'notes_writers',
+              'account_attribution', 'account_writers', 'account',
               'soul_status', 'ritual_results',
-              'commentary_attribution', 'commentary',
+              'commentary_attribution', 'commentary_writers', 'commentary',
               'plain_text_link',
               'ready_to_publish')
     readonly_fields = ('plain_text_link',)

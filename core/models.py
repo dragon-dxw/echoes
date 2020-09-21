@@ -1,7 +1,7 @@
 from django.db import models
-
-# Create your models here.
 from django.db.models import TextField, CharField, ForeignKey, IntegerField, BooleanField, UniqueConstraint
+
+from sortedm2m.fields import SortedManyToManyField
 
 SEASONS = (
     "Spring",
@@ -32,6 +32,14 @@ class Volume(models.Model):
     def __str__(self):
         return self.volume_title
 
+
+class Writer(models.Model):
+    name = CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+
 class Vision(models.Model):
     account = TextField()
     visionary = CharField(max_length=200)
@@ -47,6 +55,10 @@ class Vision(models.Model):
     notes_attribution = CharField(max_length=500, blank=True, null=True)
     account_attribution = CharField(max_length=500, blank=True, null=True)
     commentary_attribution = CharField(max_length=500, blank=True, null=True)
+    # ====
+    notes_writers = SortedManyToManyField(Writer, related_name="notes_written_by")
+    account_writers = SortedManyToManyField(Writer, related_name="accounts_written_by")
+    commentary_writers = SortedManyToManyField(Writer, related_name="commentary_written_by", blank=True)
 
     class Meta:
         constraints = [
