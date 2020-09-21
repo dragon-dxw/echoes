@@ -52,10 +52,6 @@ class Vision(models.Model):
     order_in_volume = IntegerField()
     ready_to_publish = BooleanField(default=False)
     # ====
-    notes_attribution = CharField(max_length=500, blank=True, null=True)
-    account_attribution = CharField(max_length=500, blank=True, null=True)
-    commentary_attribution = CharField(max_length=500, blank=True, null=True)
-    # ====
     notes_writers = SortedManyToManyField(Writer, related_name="notes_written_by")
     account_writers = SortedManyToManyField(Writer, related_name="accounts_written_by")
     commentary_writers = SortedManyToManyField(Writer, related_name="commentary_written_by", blank=True)
