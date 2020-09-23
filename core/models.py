@@ -29,6 +29,14 @@ class Volume(models.Model):
     def volume_title(self):
         return "Volume {v.number}, {v.date_season} {v.festival_type} {v.date_year} YE".format(v=self)
 
+    def writers_for_volume(self, writer_type):
+        assert writer_type in ('notes', 'account', 'commentary')
+        field_mappings = {'notes': 'notes_written_by',
+                          'account': 'accounts_written_by',
+                          'commentary': 'commentary_written_by'}
+        return Writer.objects.filter(**{"{}__in".format(field_mappings[writer_type]): self.vision_set.all()}
+                                     ).distinct()
+
     def __str__(self):
         return self.volume_title
 
