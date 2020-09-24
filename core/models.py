@@ -26,8 +26,12 @@ class Volume(models.Model):
             return "Solstice"
 
     @property
+    def volume_date(self):
+        return "{v.date_season} {v.festival_type} {v.date_year} YE".format(v=self)
+
+    @property
     def volume_title(self):
-        return "Volume {v.number}, {v.date_season} {v.festival_type} {v.date_year} YE".format(v=self)
+        return "Volume {v.number}, {v.volume_date}".format(v=self)
 
     def writers_for_volume(self, writer_type):
         assert writer_type in ('notes', 'account', 'commentary')
