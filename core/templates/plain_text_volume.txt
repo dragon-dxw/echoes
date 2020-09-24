@@ -1,0 +1,46 @@
+[cover text - ** means in bold]
+{% load humanize %}
+--Echoes of the Labyrinth--
+
+{{ number_and_dates }}
+
+A collection of notes on the experience of Pure Liao Visionaries, collected by
+
+*{{ front_page_credits.0 }}*
+{% if front_page_credits|length > 1 %}
+and
+
+{% for credit in front_page_credits|slice:"1:" %}*{{ credit }}*
+{% endfor %}{% endif %}
+
+by the direction and authority of the Council of Nine.
+
+
+========
+
+[Interior text follows.
+--Things like this-- or -Things like this- are headings.]
+
+{{ contributor_credits }}
+
+Information contained here is incomplete; future editions of this pamphlet may contain more information as the authors consult again with the visionaries and their guides, particularly for the information returned to visionaries by the Civil Service as a result of their inquiries.
+
+These notes were taken from verbal testimonies of witnessed events, so spellings and exact pronunciations of names should not be considered definitive.
+
+========
+
+--{{ volume.volume_date }}-- {# should be "Winter Solstice, 381 YE" #}
+
+-Introduction-
+
+{{ volume.list_of_visions|length|apnumber|title }} visionar{{ volume.list_of_visions|length|pluralize:"y,ies" }} experienced visions induced by Pure Liao at the {{ volume.festival_type}}.
+
+Following their visions, the visionaries and their accompanying guides were questioned by the authors. Their stories are recorded in the following pages, in the order that the visions were received.
+
+{% for vision in volume.list_of_visions %}* {{ vision.visionary|safe }}, accompanied by {{ vision.guide|safe }}
+{% endfor %}
+
+{% for vision in volume.list_of_visions%}
+{% include "plain_text_vision.txt" with vision=vision %}
+
+{% endfor %}

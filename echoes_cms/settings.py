@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'sortedm2m',
 ]
 
@@ -67,6 +68,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'debug': True,
+            # 'string_if_invalid': '!!!HEY LOOK AN INVALID VARIABLE!!!'
         },
     },
 ]
