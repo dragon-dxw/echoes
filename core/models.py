@@ -3,6 +3,13 @@ from django.db.models import TextField, CharField, ForeignKey, IntegerField, Boo
 
 from sortedm2m.fields import SortedManyToManyField
 
+class Writer(models.Model):
+    name = CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+
 SEASONS = (
     "Spring",
     "Summer",
@@ -17,6 +24,7 @@ class Volume(models.Model):
     date_season = CharField(choices=SEASON_CHOICES,
                             max_length=6)
     date_year = IntegerField()
+    main_contributor = ForeignKey(Writer, on_delete=models.deletion.CASCADE)
 
     @property
     def festival_type(self):
@@ -47,13 +55,6 @@ class Volume(models.Model):
 
     def __str__(self):
         return self.volume_title
-
-
-class Writer(models.Model):
-    name = CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
 
 
 class Vision(models.Model):
