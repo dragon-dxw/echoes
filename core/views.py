@@ -44,10 +44,13 @@ def _contributor_credits_for_output(volume_list):
     return "\n".join(credits)
 
 def _front_page_credits_for_output(volume_list):
-    # TODO: I'm thinking of doing this differently, but to start with, do it using v.writers_for_volume("notes").
-    writers = volume_list[0].writers_for_volume("notes").union(
+    """The top credit goes to whoever was the main contributor in the earliest volume in the set
+    that we're outputting.
+    The rest of them are anyone who wrote notes for those volumes."""
+    first_writer = volume_list[0].main_contributor
+    other_writers = volume_list[0].writers_for_volume("notes").union(
         *[v.writers_for_volume("notes") for v in volume_list[1:]])
-    return [writer.name for writer in writers]
+    return [first_writer.name] + [writer.name for writer in other_writers if writer != first_writer]
 
 def _volume_number_dates_for_output(volume_list):
     assert len(volume_list) > 0
