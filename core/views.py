@@ -62,16 +62,21 @@ def _volume_number_dates_for_output(volume_list):
             first=sorted_volumes[0], last=sorted_volumes[-1]
         )
 
-def plain_text_single_volume(request, volume_number):
-    volume = Volume.objects.get(number=volume_number)
-    # TODO: When we've got this working as a single-event template, extend it to cover multiple events.
-    # TODO: Properly implement volume credits rather than just using the notes credits.
-    # TODO: Add the "N visionaries at this summit" paragraph, ideally with source attributions but optionally not.
+def _plain_text_volume(request, volume_list):
     return SimpleTemplateResponse(template="plain_text_volume.txt",
                                   context={
-                                      "volume": volume,
-                                      "contributor_credits": _contributor_credits_for_output([volume]),
-                                      "front_page_credits": _front_page_credits_for_output([volume]),
-                                      "number_and_dates": _volume_number_dates_for_output([volume]),
+                                      "volumes": volume_list,
+                                      "contributor_credits": _contributor_credits_for_output(volume_list),
+                                      "front_page_credits": _front_page_credits_for_output(volume_list),
+                                      "numbers_and_dates": _volume_number_dates_for_output(volume_list),
                                   },
-                                  content_type="text/plain")
+                                  content_type="text/plain; charset=utf-8")
+
+
+def plain_text_single_volume(request, volume_number):
+    volume = Volume.objects.get(number=volume_number)
+    return _plain_text_volume(request, [volume])
+
+def plain_text_full_year(request, volume_major_number):
+    volumes = Volume.objects.filter(number__regex=str(volume_major_number) + r"[a-d]").order_by('number')
+    return _plain_text_volume(request, volumes)
