@@ -12,10 +12,9 @@ admin.site.register(Volume)
 @admin.register(Vision)
 class VisionAdmin(admin.ModelAdmin):
     fields = ('volume', 'order_in_volume', 'visionary', 'guide', 'dose_origin',
-              'notes_attribution', 'notes_writers',
-              'account_attribution', 'account_writers', 'account',
+              'notes_writers', 'account_writers', 'account',
               'soul_status', 'ritual_results',
-              'commentary_attribution', 'commentary_writers', 'commentary',
+              'commentary_writers', 'commentary',
               'plain_text_link',
               'ready_to_publish')
     readonly_fields = ('plain_text_link',)
