@@ -2,7 +2,7 @@
 {% load humanize %}
 --Echoes of the Labyrinth--
 
-{{ number_and_dates }}
+{{ numbers_and_dates }}
 
 A collection of notes on the experience of Pure Liao Visionaries, collected by
 
@@ -29,7 +29,7 @@ These notes were taken from verbal testimonies of witnessed events, so spellings
 
 ========
 
---{{ volume.volume_date }}-- {# should be "Winter Solstice, 381 YE" #}
+{% for volume in volumes %}--{{ volume.volume_date }}-- {# should be "Winter Solstice, 381 YE" #}
 
 -Introduction-
 
@@ -43,4 +43,4 @@ Following their visions, the visionaries and their accompanying guides were ques
 {% for vision in volume.list_of_visions%}
 {% include "plain_text_vision.txt" with vision=vision %}
 
-{% endfor %}
+{% endfor %}{% endfor %}
