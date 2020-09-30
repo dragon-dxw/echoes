@@ -70,7 +70,7 @@ def _plain_text_volume(request, volume_list):
                                       "front_page_credits": _front_page_credits_for_output(volume_list),
                                       "numbers_and_dates": _volume_number_dates_for_output(volume_list),
                                   },
-                                  content_type="text/plain")
+                                  content_type="text/plain; charset=utf-8")
 
 
 def plain_text_single_volume(request, volume_number):
