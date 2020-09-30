@@ -76,3 +76,7 @@ def _plain_text_volume(request, volume_list):
 def plain_text_single_volume(request, volume_number):
     volume = Volume.objects.get(number=volume_number)
     return _plain_text_volume(request, [volume])
+
+def plain_text_full_year(request, volume_major_number):
+    volumes = Volume.objects.filter(number__regex=str(volume_major_number) + r"[a-d]").order_by('number')
+    return _plain_text_volume(request, volumes)
