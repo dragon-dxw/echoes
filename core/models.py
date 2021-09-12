@@ -84,6 +84,9 @@ class Vision(models.Model):
         """
         return self.visionary
 
+    def list_account(self):
+        return self.account.split('\n') 
+
     def plain_text_output(self):
         output = []
         if self.dose_origin:

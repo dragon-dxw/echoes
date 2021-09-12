@@ -1,0 +1,23 @@
+<h1>{{ vision.visionary|safe }}</h1>
+<p>Accompanied by {{ vision.guide|safe }}</p>
+
+
+{% if vision.dose_origin %}
+  <p>{{vision.dose_origin}}</p>
+{% endif %}
+
+{% for paragraph in vision.list_account %}
+  <p>{{paragraph}}</p>
+{% endfor %}
+
+{% if vision.soul_status %}
+  <p>{{vision.soul_status}}</p>
+{% endif %}
+
+{% if vision.ritual_status %}
+  <p>{{vision.ritual_status}}</p>
+{% endif %}
+
+{% if self.commentary %}
+  <p>{{self.commentary}}</p>
+{% endif %}

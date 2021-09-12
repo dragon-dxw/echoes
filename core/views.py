@@ -14,6 +14,11 @@ def plain_text_vision(request, pk):
     return SimpleTemplateResponse(template="plain_text_vision.txt", context={"vision": vision},
                                   content_type="text/plain")
 
+def rich_text_vision(request, pk):
+    vision = Vision.objects.get(pk=pk)
+    return SimpleTemplateResponse(template="rich_text_vision.html", context={"vision": vision},
+                                  content_type="text/html")
+
 def _title_for_output(volume_list):
     if len(volume_list) == 1:
         return volume_list[0].volume_title
@@ -72,6 +77,16 @@ def _plain_text_volume(request, volume_list):
                                   },
                                   content_type="text/plain; charset=utf-8")
 
+def _rich_text_volume(request, volume_list):
+    return SimpleTemplateResponse(template="rich_text_volume.html",
+                                  context={
+                                      "volumes": volume_list,
+                                      "contributor_credits": _contributor_credits_for_output(volume_list),
+                                      "front_page_credits": _front_page_credits_for_output(volume_list),
+                                      "numbers_and_dates": _volume_number_dates_for_output(volume_list),
+                                  },
+                                  content_type="text/html; charset=utf-8")
+
 
 def plain_text_single_volume(request, volume_number):
     volume = Volume.objects.get(number=volume_number)
@@ -80,3 +95,11 @@ def plain_text_single_volume(request, volume_number):
 def plain_text_full_year(request, volume_major_number):
     volumes = Volume.objects.filter(number__regex=str(volume_major_number) + r"[a-d]").order_by('number')
     return _plain_text_volume(request, volumes)
+
+def rich_text_single_volume(request, volume_number):
+    volume = Volume.objects.get(number=volume_number)
+    return _rich_text_volume(request, [volume])
+
+def rich_text_full_year(request, volume_major_number):
+    volumes = Volume.objects.filter(number__regex=str(volume_major_number) + r"[a-d]").order_by('number')
+    return _rich_text_volume(request, volumes)
