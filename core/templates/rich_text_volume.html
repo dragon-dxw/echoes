@@ -12,10 +12,14 @@
 <p>A collection of notes on the experience of Pure Liao Visionaries, collected by
 
 <p class=author>{{ front_page_credits.0 }}</p>
-{% for credit in front_page_credits|slice:"1:" %}<p>and</p> <p class=author>{{ credit }}</p>{% endfor %}
+{% if front_page_credits|length > 1 %}<p> and </p>{% endif %}
+{% for credit in front_page_credits|slice:"1:" %}<p class=author>{{ credit }}</p>{% endfor %}
 
 <p>by the direction and authority of the Council of Nine.</p>
+
+<p>Spider’s Vantage Press</p>
 </div>
+
 <hr>
 
 <p>[Interior text follows.
@@ -29,13 +33,12 @@
 
 <p>These notes were taken from verbal testimonies of witnessed events, so spellings and exact pronunciations of names should not be considered definitive.</p>
 
+{% for volume in volumes %}
 <hr>
 
-{% for volume in volumes %}
+<h2 class=volume_date>{{ volume.volume_date }}</h2> {# should be "Winter Solstice, 381 YE" #}
 
-<h1>{{ volume.volume_date }}</h1> {# should be "Winter Solstice, 381 YE" #}
-
-<h2>Introduction</h2>
+<h3>Introduction</h3>
 
 <p>{{ volume.list_of_visions|length|apnumber|title }} visionar{{ volume.list_of_visions|length|pluralize:"y,ies" }} experienced {{volume.list_of_visions|length|pluralize:"a vision,visions"}} induced by Pure Liao at the {{ volume.festival_type}}.</p>
 
