@@ -1,25 +1,29 @@
 {% load humanize %}
-<h2>Echoes of the Labyrinth</h2>
+<html>
+<head>
+<title>Echoes of the Labyrinth {{numbers_and_dates}}</title>
+<link rel="stylesheet" href="/static/echoes.css">
+</head>
+<div class="frontpage">
+<h1 class="title">Echoes of the Labyrinth</h1>
 
 <p>{{ numbers_and_dates }}</p>
 
 <p>A collection of notes on the experience of Pure Liao Visionaries, collected by
 
-<b>{{ front_page_credits.0 }}</b>
-{% if front_page_credits|length > 1 %}
-and
+<p class=author>{{ front_page_credits.0 }}</p>
+{% for credit in front_page_credits|slice:"1:" %}<p>and</p> <p class=author>{{ credit }}</p>{% endfor %}
 
-{% for credit in front_page_credits|slice:"1:" %}<b>{{ credit }}</b>
-{% endfor %}{% endif %}
-
-by the direction and authority of the Council of Nine.</p>
-
+<p>by the direction and authority of the Council of Nine.</p>
+</div>
 <hr>
 
 <p>[Interior text follows.
 --Things like this-- or -Things like this- are headings.]</p>
 
-<p>{{ contributor_credits }}</p>
+{% for credit in contributor_credits %}
+<p>{{credit}}</p>
+{% endfor %}
 
 <p>Information contained here is incomplete; future editions of this pamphlet may contain more information as the authors consult again with the visionaries and their guides, particularly for the information returned to visionaries by the Civil Service as a result of their inquiries.</p>
 
@@ -45,3 +49,4 @@ by the direction and authority of the Council of Nine.</p>
 {% include "rich_text_vision.html" with vision=vision %}
 
 {% endfor %}{% endfor %}
+</html>

@@ -81,7 +81,7 @@ def _rich_text_volume(request, volume_list):
     return SimpleTemplateResponse(template="rich_text_volume.html",
                                   context={
                                       "volumes": volume_list,
-                                      "contributor_credits": _contributor_credits_for_output(volume_list),
+                                      "contributor_credits": _contributor_credits_for_output(volume_list).split('\n'),
                                       "front_page_credits": _front_page_credits_for_output(volume_list),
                                       "numbers_and_dates": _volume_number_dates_for_output(volume_list),
                                   },
