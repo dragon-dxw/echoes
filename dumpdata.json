@@ -1,0 +1,577 @@
+[
+{
+    "model": "core.writer",
+    "pk": 1,
+    "fields": {
+        "name": "Hywel Summer Crow of Navarr"
+    }
+},
+{
+    "model": "core.writer",
+    "pk": 2,
+    "fields": {
+        "name": "Livia of the Celestial Cascade of Urizen"
+    }
+},
+{
+    "model": "core.volume",
+    "pk": 1,
+    "fields": {
+        "number": "1a",
+        "date_season": "Winter",
+        "date_year": 376,
+        "main_contributor": 1
+    }
+},
+{
+    "model": "core.vision",
+    "pk": 1,
+    "fields": {
+        "account": "The visionary gave her permission for these notes to be made public. The exigencies of Imperial duty meant that the guiding priest was not available to be interviewed, so these notes are based solely on the testimony of the visionary.\r\nIn General Ruth's vision, she was a male Highborn sea captain named Abraham, on a voyage bound for the Brass Coast. Abraham's first mate, a short, slim male Highborn with a somewhat pinched face and wearing a black tunic with gold trim, was showing the captain a drake's egg that he had discovered among the effects of a paying customer, one Carlo i Eretzia i Riqueza of the Brass Coast. At the time, the import of drake eggs was forbidden, and i Eretzia had attempted to bribe the first mate to conceal the matter. The first mate had refused and brought the matter to Abraham. i Eretzia offered Abraham a substantial bribe to refrain from reporting him to the civil service, giving them the number of a safety deposit box containing unspecified objects of value. \r\nThe visionary reported that i Eretzia seemed to want very badly to hold the egg, although it is unclear if there was any reason beyond that it represented financial salvation for his household.\r\nAbraham refused the bribe, held the ship on course and determined to report i Eretzia to the Imperial Civil Service upon arrival in Feroz.\r\nAccording to General Ruth's description, the sense of touch was the first to manifest, through the feeling of her hand on the drake egg. (The egg was approximately ten inches across, and was contained in a twelve by eighteen inch crate.) Sounds followed, and then sight. The vision occurred at night. While the General's range of vision was limited to a few feet around herself, she gained the impression that the ship was small.\r\nFrom her position on the upper deck, the bow and a single mast were visible.\r\nThe Imperial Civil Service was able to locate the safety deposit box referred to in the vision, dating the vision to the period 80-90 YE. With the permission of both the visionary and the Senator for Feroz, the box was opened and found to contain a sum of money, a set of accounts and i Eretzia's final contract.\r\nThe letter described how he felt he had shamed himself by borrowing money from the Crimson Corsairs to support his family's trade fleet, and how he wished to be free of their influence. As their requests began to strain the boundaries of legality, he had instigated a number of secret ventures to generate sufficient funds to allow his family to break free of the Corsairs' influence. The smuggling of the drake's egg was presumably one such venture.\r\nThe accounts were produced by the Boris Butchers of Temeschwar, and described the annual profits and losses of i Eretzia's secret ventures. These typically generated up to 60 Rings of profit per year, with a period of heavy investment from 85 YE to 87 YE during which 700 Rings was generated, and a loss of 600 Rings the following year. A sum of 80 Rings was present in the deposit box, matching the final entry of the accounts upon closure in 101 YE.",
+        "visionary": "General Ruth of Felix's Watch",
+        "guide": "Eli of Felix's Watch (Vigilance)",
+        "dose_origin": "General Ruth was selected as a visionary by Lucifer of Highguard, who placed a winning bid of eight Crowns in the Virtuous Auction.",
+        "soul_status": "",
+        "ritual_results": "",
+        "commentary": "",
+        "volume": 1,
+        "order_in_volume": 1,
+        "ready_to_publish": true,
+        "notes_writers": [
+            1,
+            2
+        ],
+        "account_writers": [
+            1,
+            2
+        ],
+        "commentary_writers": []
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "core",
+        "model": "volume"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "core",
+        "model": "vision"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "core",
+        "model": "writer"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "5mxdewun1zby69n9185xew2woefn9b39",
+    "fields": {
+        "session_data": "NzA3YzE3NGIwZjhjZGU3ZjU4ZDkyZTc4NDQzNTYyOWNmYTUyMGU2MTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzMmI3ZGJjN2VkY2EwZjRmNDdhYTY0MDBiMTk4ZmUzYmY3M2JlZjM1In0=",
+        "expire_date": "2021-09-26T14:05:57.341Z"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add volume",
+        "content_type": 1,
+        "codename": "add_volume"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change volume",
+        "content_type": 1,
+        "codename": "change_volume"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete volume",
+        "content_type": 1,
+        "codename": "delete_volume"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view volume",
+        "content_type": 1,
+        "codename": "view_volume"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add vision",
+        "content_type": 2,
+        "codename": "add_vision"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change vision",
+        "content_type": 2,
+        "codename": "change_vision"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete vision",
+        "content_type": 2,
+        "codename": "delete_vision"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view vision",
+        "content_type": 2,
+        "codename": "view_vision"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add writer",
+        "content_type": 3,
+        "codename": "add_writer"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change writer",
+        "content_type": 3,
+        "codename": "change_writer"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete writer",
+        "content_type": 3,
+        "codename": "delete_writer"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view writer",
+        "content_type": 3,
+        "codename": "view_writer"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 4,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 4,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 4,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 4,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 5,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 5,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 5,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 5,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 6,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 6,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 6,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 6,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 7,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 7,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 7,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 7,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 8,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 8,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 8,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 8,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 9,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 9,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 9,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 9,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$sDdkowIs6Alc$eXR42B05ssc5Zqf3HWGj3xIhYNQ16Bkh9EUNmp7TF5I=",
+        "last_login": "2021-09-12T14:05:57.340Z",
+        "is_superuser": true,
+        "username": "alcuin",
+        "first_name": "",
+        "last_name": "",
+        "email": "alcuin@shatterspire.heliopticon",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-09-12T14:05:28.473Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2021-09-12T14:07:48.846Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Hywel Summer Crow of Navarr",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2021-09-12T14:07:54.775Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "1",
+        "object_repr": "Volume 1a, Winter Solstice 376 YE",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2021-09-12T14:08:00.084Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "1",
+        "object_repr": "Volume 1a, Winter Solstice 376 YE",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2021-09-12T14:08:24.376Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Livia of the Celestial Cascade of Urizen",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2021-09-12T14:10:57.307Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "1",
+        "object_repr": "General Ruth of Felix's Watch",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2021-09-12T14:11:02.910Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "1",
+        "object_repr": "General Ruth of Felix's Watch",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2021-09-12T14:55:00.790Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "1",
+        "object_repr": "General Ruth of Felix's Watch",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"account\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2021-09-12T14:55:58.416Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "1",
+        "object_repr": "General Ruth of Felix's Watch",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"account\"]}}]"
+    }
+}
+]

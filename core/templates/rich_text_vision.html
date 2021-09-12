@@ -6,6 +6,7 @@
   <p>{{vision.dose_origin}}</p>
 {% endif %}
 
+{% if vision.ready_to_publish %} 
 {% for paragraph in vision.list_account %}
   <p>{{paragraph}}</p>
 {% endfor %}
@@ -20,4 +21,8 @@
 
 {% if self.commentary %}
   <p>{{self.commentary}}</p>
+{% endif %}
+
+{% else %} {# vision not ready to publish #}
+The visionary has not granted permission to publish this account.
 {% endif %}
